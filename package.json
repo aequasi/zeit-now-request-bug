@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aequasi/zeit-now-request-bug.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aequasi/zeit-now-request-bug/issues"
+  },
+  "homepage": "https://github.com/aequasi/zeit-now-request-bug#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}

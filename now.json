@@ -1,0 +1,11 @@
+{
+    "name":    "test",
+    "version": 2,
+    "scope":   "aequasi",
+    "builds":  [
+        {"src": "test.js", "use": "@now/node@canary"}
+    ],
+    "routes":  [
+        {"src": "/", "dest": "/test.js"}
+    ]
+}
