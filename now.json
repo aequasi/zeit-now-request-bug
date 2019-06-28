@@ -3,7 +3,7 @@
     "version": 2,
     "scope":   "aequasi",
     "builds":  [
-        {"src": "test.js", "use": "@now/node@canary"}
+        {"src": "test.js", "use": "@now/node"}
     ],
     "routes":  [
         {"src": "/", "dest": "/test.js"}

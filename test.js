@@ -1,25 +1,27 @@
-const request = require('request');
+require('dotenv').config();
+const request          = require('request');
+const {SecretsManager} = require('aws-sdk');
 
-const handler = (req, res) => {
-    /*
-    request(
-        'https://jsonplaceholder.typicode.com/todos/1',
-        (err, resp, body) => {
-            if (err) console.log(err);
+const manager = new SecretsManager({
+    region:      process.env.AWS_REGION,
+    credentials: {
+        accessKeyId:     process.env.AWS_ACCESS_KEY_ID,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+});
 
-            if (res) {
-                res.status(200).json([JSON.parse(body)]);
-            } else {
-                console.log(body, typeof body); // JSON as string, string
-                console.log(JSON.parse(body));
-            }
-        }
-    )*/
-    res.json(undefined);
-}
+const handler = async (req, res) => {
+    const secret = await manager.getSecretValue({SecretId: process.env.SECRET_ID}).promise();
+
+    try {
+        res.json(JSON.parse(secret.SecretString));
+    } catch (ignored) {
+        res.json(secret.SecretString);
+    }
+};
 
 if (!process.env.NOW_REGION) {
-    handler();
+    handler(null, {json: (msg) => console.log(msg)});
 }
 
 module.exports = handler;

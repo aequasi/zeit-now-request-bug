@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/aequasi/zeit-now-request-bug#readme",
   "dependencies": {
+    "aws-sdk": "^2.484.0",
+    "dotenv": "^8.0.0",
     "request": "^2.88.0"
   }
 }
